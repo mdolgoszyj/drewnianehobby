@@ -1,117 +1,197 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drewniane Hobby - Projekty</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            background-color: #fdf6f0;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drewniane Hobby - Portfolio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+        background-color: #fefcf8;
+        color: #333;
+    }
 
-        header {
-            background-color: #8b5e3c;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 1rem;
-        }
+    header {
+        height: 60vh;
+        background: url('images/header.jpg') center/cover no-repeat fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        position: relative;
+    }
 
+    header h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    nav {
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        background-color: rgba(139,94,60,0.7);
+        border-radius: 6px;
+        transition: background 0.3s;
+    }
+
+    nav a:hover {
+        background-color: rgba(139,94,60,1);
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2rem;
+        color: #8b5e3c;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+    }
+
+    .lightbox:target {
+        display: flex;
+    }
+
+    footer {
+        background-color: #8b5e3c;
+        color: #fff;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    footer a {
+        color: #fff;
+        margin: 0 8px;
+        text-decoration: none;
+    }
+
+    @media(max-width: 600px){
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
-
-        nav {
-            margin-top: 1rem;
-        }
-
         nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
+            margin: 5px;
+            padding: 6px 10px;
+            font-size: 0.9rem;
         }
-
-        section {
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #8b5e3c;
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem 1rem;
-        }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 0.5rem;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Drewniane Hobby</h1>
-        <nav>
-            <a href="#o-mnie">O mnie</a>
-            <a href="#projekty">Projekty</a>
-            <a href="#kontakt">Kontakt</a>
-        </nav>
-    </header>
 
-    <section id="o-mnie">
-        <h2>O mnie</h2>
-        <p>Witam! Jestem pasjonatem obróbki drewna i tworzę unikalne projekty wycinane laserowo i ręcznie. Na tej stronie znajdziesz galerię moich najnowszych prac.</p>
-    </section>
+<header>
+    <h1>Drewniane Hobby</h1>
+    <nav>
+        <a href="#o-mnie">O mnie</a>
+        <a href="#projekty">Projekty</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
 
-    <section id="projekty">
-        <h2>Moje projekty</h2>
-        <div class="gallery">
-            <img src="images/projekt1.jpg" alt="Projekt 1">
-            <img src="images/projekt2.jpg" alt="Projekt 2">
-            <img src="images/projekt3.jpg" alt="Projekt 3">
-            <img src="images/projekt4.jpg" alt="Projekt 4">
-            <img src="images/projekt5.jpg" alt="Projekt 5">
-            <img src="images/projekt6.jpg" alt="Projekt 6">
-        </div>
-    </section>
+<section id="o-mnie">
+    <h2>O mnie</h2>
+    <p>Witam! Jestem pasjonatem obróbki drewna. Tworzę unikalne projekty wycinane ręcznie oraz laserowo. Na tej stronie możesz zobaczyć moje najnowsze realizacje i dowiedzieć się, jak się ze mną skontaktować.</p>
+</section>
 
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Masz pytania lub chcesz zamówić projekt? Napisz do mnie: <a href="mailto:kontakt@drewnianehobby.pl">kontakt@drewnianehobby.pl</a></p>
-    </section>
+<section id="projekty">
+    <h2>Moje projekty</h2>
+    <div class="gallery">
+        <a href="#img1"><img src="images/projekt1.jpg" alt="Projekt 1"></a>
+        <a href="#img2"><img src="images/projekt2.jpg" alt="Projekt 2"></a>
+        <a href="#img3"><img src="images/projekt3.jpg" alt="Projekt 3"></a>
+        <a href="#img4"><img src="images/projekt4.jpg" alt="Projekt 4"></a>
+        <a href="#img5"><img src="images/projekt5.jpg" alt="Projekt 5"></a>
+        <a href="#img6"><img src="images/projekt6.jpg" alt="Projekt 6"></a>
+        <a href="#img7"><img src="images/projekt7.jpg" alt="Projekt 7"></a>
+        <a href="#img8"><img src="images/projekt8.jpg" alt="Projekt 8"></a>
+        <a href="#img9"><img src="images/projekt9.jpg" alt="Projekt 9"></a>
+        <a href="#img10"><img src="images/projekt10.jpg" alt="Projekt 10"></a>
+        <a href="#img11"><img src="images/projekt11.jpg" alt="Projekt 11"></a>
+        <a href="#img12"><img src="images/projekt12.jpg" alt="Projekt 12"></a>
+        <a href="#img13"><img src="images/projekt13.jpg" alt="Projekt 13"></a>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Drewniane Hobby</p>
-        <p>
-            <a href="#">Facebook</a> | 
-            <a href="#">Instagram</a>
-        </p>
-    </footer>
+    <!-- Lightbox images -->
+    <div id="img1" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt1.jpg" alt="Projekt 1"></div>
+    <div id="img2" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt2.jpg" alt="Projekt 2"></div>
+    <div id="img3" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt3.jpg" alt="Projekt 3"></div>
+    <div id="img4" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt4.jpg" alt="Projekt 4"></div>
+    <div id="img5" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt5.jpg" alt="Projekt 5"></div>
+    <div id="img6" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt6.jpg" alt="Projekt 6"></div>
+    <div id="img7" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt7.jpg" alt="Projekt 7"></div>
+    <div id="img8" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt8.jpg" alt="Projekt 8"></div>
+    <div id="img9" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt9.jpg" alt="Projekt 9"></div>
+    <div id="img10" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt10.jpg" alt="Projekt 10"></div>
+    <div id="img11" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt11.jpg" alt="Projekt 11"></div>
+    <div id="img12" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt12.jpg" alt="Projekt 12"></div>
+    <div id="img13" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt13.jpg" alt="Projekt 13"></div>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Masz pytania lub chcesz zamówić projekt? Napisz do mnie: <a href="mailto:kontakt@drewnianehobby.pl">kontakt@drewnianehobby.pl</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Drewniane Hobby</p>
+</footer>
+
 </body>
 </html>
