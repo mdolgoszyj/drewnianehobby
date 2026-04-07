@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drewniane Hobby - Portfolio</title>
+<meta name="description" content="Portfolio Drewniane Hobby – prezentacja moich drewnianych projektów, rękodzieła i pasji do drewna.">
 <style>
     body, html {
         margin: 0;
@@ -15,25 +16,27 @@
     }
 
     header {
-        height: 20vh; /* węższy nagłówek */
-        background-color: #3b7d3b; /* zielone tło */
+        height: 20vh;
+        background-color: #3b7d3b;
         display: flex;
         justify-content: center;
         align-items: center;
         color: #fff;
         text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-        position: relative;
         flex-direction: column;
         text-align: center;
     }
 
     header h1 {
-        font-size: 2.5rem; /* lekko mniejszy napis */
+        font-size: 2.5rem;
         margin: 0;
     }
 
     nav {
         margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav a {
@@ -52,7 +55,7 @@
     }
 
     section {
-        padding: 20px 20px;
+        padding: 20px;
         max-width: 1200px;
         margin: auto;
     }
@@ -89,23 +92,45 @@
         display: none;
         position: fixed;
         z-index: 1000;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top:0; left:0;
+        width:100%; height:100%;
         background: rgba(0,0,0,0.9);
         justify-content: center;
         align-items: center;
     }
 
-    .lightbox img {
+    .lightbox-img {
         max-width: 90%;
         max-height: 90%;
         border-radius: 8px;
     }
 
-    .lightbox:target {
-        display: flex;
+    .lightbox .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .lightbox .nav {
+        position: absolute;
+        top: 50%;
+        font-size: 3rem;
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        transform: translateY(-50%);
+        padding: 10px;
+    }
+
+    .lightbox .prev {
+        left: 50px; /* przesunięcie poza grafikę */
+    }
+
+    .lightbox .next {
+        right: 50px; /* przesunięcie poza grafikę */
     }
 
     footer {
@@ -131,6 +156,12 @@
             font-size: 0.9rem;
         }
     }
+
+    @media(max-width: 400px){
+        .gallery {
+            gap: 10px;
+        }
+    }
 </style>
 </head>
 <body>
@@ -138,8 +169,8 @@
 <header>
     <h1>Drewniane Hobby</h1>
     <nav>
-        <a href="#o-mnie">O mnie</a>
-        <a href="#projekty">Projekty</a>
+        <a href="#o-mnie" title="O mnie">O mnie</a>
+        <a href="#projekty" title="Moje projekty">Projekty</a>
     </nav>
 </header>
 
@@ -151,40 +182,86 @@
 <section id="projekty">
     <h2>Moje projekty</h2>
     <div class="gallery">
-        <a href="#img1"><img src="images/projekt1.jpg" alt="Projekt 1"></a>
-        <a href="#img2"><img src="images/projekt2.jpg" alt="Projekt 2"></a>
-        <a href="#img3"><img src="images/projekt3.jpg" alt="Projekt 3"></a>
-        <a href="#img4"><img src="images/projekt4.jpg" alt="Projekt 4"></a>
-        <a href="#img5"><img src="images/projekt5.jpg" alt="Projekt 5"></a>
-        <a href="#img6"><img src="images/projekt6.jpg" alt="Projekt 6"></a>
-        <a href="#img7"><img src="images/projekt7.jpg" alt="Projekt 7"></a>
-        <a href="#img8"><img src="images/projekt8.jpg" alt="Projekt 8"></a>
-        <a href="#img9"><img src="images/projekt9.jpg" alt="Projekt 9"></a>
-        <a href="#img10"><img src="images/projekt10.jpg" alt="Projekt 10"></a>
-        <a href="#img11"><img src="images/projekt11.jpg" alt="Projekt 11"></a>
-        <a href="#img12"><img src="images/projekt12.jpg" alt="Projekt 12"></a>
-        <a href="#img13"><img src="images/projekt13.jpg" alt="Projekt 13"></a>
+        <img src="images/projekt1.jpg" alt="Projekt 1" loading="lazy">
+        <img src="images/projekt2.jpg" alt="Projekt 2" loading="lazy">
+        <img src="images/projekt3.jpg" alt="Projekt 3" loading="lazy">
+        <img src="images/projekt4.jpg" alt="Projekt 4" loading="lazy">
+        <img src="images/projekt5.jpg" alt="Projekt 5" loading="lazy">
+        <img src="images/projekt6.jpg" alt="Projekt 6" loading="lazy">
+        <img src="images/projekt7.jpg" alt="Projekt 7" loading="lazy">
+        <img src="images/projekt8.jpg" alt="Projekt 8" loading="lazy">
+        <img src="images/projekt9.jpg" alt="Projekt 9" loading="lazy">
+        <img src="images/projekt10.jpg" alt="Projekt 10" loading="lazy">
+        <img src="images/projekt11.jpg" alt="Projekt 11" loading="lazy">
+        <img src="images/projekt12.jpg" alt="Projekt 12" loading="lazy">
+        <img src="images/projekt13.jpg" alt="Projekt 13" loading="lazy">
     </div>
 
-    <!-- Lightbox images -->
-    <div id="img1" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt1.jpg" alt="Projekt 1"></div>
-    <div id="img2" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt2.jpg" alt="Projekt 2"></div>
-    <div id="img3" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt3.jpg" alt="Projekt 3"></div>
-    <div id="img4" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt4.jpg" alt="Projekt 4"></div>
-    <div id="img5" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt5.jpg" alt="Projekt 5"></div>
-    <div id="img6" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt6.jpg" alt="Projekt 6"></div>
-    <div id="img7" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt7.jpg" alt="Projekt 7"></div>
-    <div id="img8" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt8.jpg" alt="Projekt 8"></div>
-    <div id="img9" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt9.jpg" alt="Projekt 9"></div>
-    <div id="img10" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt10.jpg" alt="Projekt 10"></div>
-    <div id="img11" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt11.jpg" alt="Projekt 11"></div>
-    <div id="img12" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt12.jpg" alt="Projekt 12"></div>
-    <div id="img13" class="lightbox" onclick="location.href='#projekty'"><img src="images/projekt13.jpg" alt="Projekt 13"></div>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+        <div class="nav prev">&#10094;</div>
+        <div class="nav next">&#10095;</div>
+    </div>
 </section>
 
 <footer>
     <p>&copy; 2026 drewnianehobby.pl | kontakt@drewnianehobby.pl</p>
 </footer>
+
+<script>
+const galleryImages = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const closeBtn = document.querySelector('.lightbox .close');
+const prevBtn = document.querySelector('.lightbox .prev');
+const nextBtn = document.querySelector('.lightbox .next');
+const body = document.body;
+
+let currentIndex = 0;
+
+// Funkcja do otwierania lightboxa
+function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+    lightbox.style.display = 'flex';
+    body.style.overflow = 'hidden'; // blokuje przewijanie strony
+}
+
+// Funkcja do zamykania lightboxa
+function closeLightbox() {
+    lightbox.style.display = 'none';
+    body.style.overflow = ''; // przywraca przewijanie
+}
+
+// Otwieranie lightboxa po kliknięciu w obraz
+galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
+});
+
+// Zamknięcie
+closeBtn.addEventListener('click', closeLightbox);
+
+// Nawigacja
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+});
+
+// Zamknięcie po kliknięciu w tło
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+});
+</script>
 
 </body>
 </html>
